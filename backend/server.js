@@ -17,6 +17,13 @@ connection.once('open', () => {
 app.use(cors());
 app.use(express.json());
 
+/* routes */
+const workoutsRouter = require("./routes/workouts");
+const usersRouter = require("./routes/users");
+
+app.use('/workouts', workoutsRouter);
+app.use('/users', usersRouter);
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 })
